@@ -1,22 +1,30 @@
 import * as React from 'react';
 import './App.css';
 
-const logo = require('./logo.svg');
+const logo = require('./assets/xe-logo.svg');
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+import { Navbar, NavbarDivider, NavbarGroup, NavbarHeading } from '@blueprintjs/core';
+
+export default function App() {
+  return (
+    <div>
+      <Navbar>
+        <NavbarGroup align="left">
+          <NavbarHeading>
+            <img src={logo} style={{width: '48px'}} alt="logo" />
+          </NavbarHeading>
+          <NavbarDivider />
+          <button className="pt-button pt-minimal">
+            Tab
+          </button>
+        </NavbarGroup>
+
+        <NavbarGroup align="right">
+          <button className="pt-button pt-minimal">
+            Tab
+          </button>
+        </NavbarGroup>
+      </Navbar>
+    </div>
+  );
 }
-
-export default App;

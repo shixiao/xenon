@@ -4,6 +4,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
+import '@blueprintjs/core/dist/blueprint.css';
+
 ReactDOM.render(
   <App />,
   document.getElementById('root') as HTMLElement
