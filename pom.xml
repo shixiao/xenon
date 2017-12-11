@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <xenon.version>1.1-SNAPSHOT</xenon.version>
+        <xenon.version>1.2-SNAPSHOT</xenon.version>
         <xenon.web.version>${xenon.version}</xenon.web.version>
         <xenon.app.version>${xenon.version}</xenon.app.version>
         <project.build.finalName>xenon-${xenon.version}</project.build.finalName>
@@ -39,7 +39,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <repository>xenon</repository>
+                    <repository>xenonsh/xenon</repository>
                     <tag>${xenon.version}</tag>
                     <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                     <buildArgs>
