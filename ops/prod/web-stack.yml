@@ -4,6 +4,10 @@ volumes:
 networks:
   webnet:
 services:
+  web:
+    image: xenonsh/test:vtest
+    ports:
+      - "80:8080"
   db:
     image: postgres:latest
     deploy:
