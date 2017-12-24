@@ -1,9 +1,9 @@
 package sh.xenon
 
-import io.dropwizard.Application
+import co.paralleluniverse.fibers.dropwizard.FiberApplication
 import io.dropwizard.setup.Environment
 
-class XenonApplication : Application<XenonConfig>() {
+class XenonApplication : FiberApplication<XenonConfig>() {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
@@ -15,8 +15,7 @@ class XenonApplication : Application<XenonConfig>() {
         return "Xenon"
     }
 
-    override fun run(config: XenonConfig, environment: Environment) {
-        TODO("not implemented")
+    override fun fiberRun(config: XenonConfig, environment: Environment) {
     }
 }
 
