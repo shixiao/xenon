@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <xenon.version>1.2-SNAPSHOT</xenon.version>
+        <xenon.version>0.1-SNAPSHOT</xenon.version>
         <xenon.web.version>${xenon.version}</xenon.web.version>
         <xenon.app.version>${xenon.version}</xenon.app.version>
         <project.build.finalName>xenon-${xenon.version}</project.build.finalName>
