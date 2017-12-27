@@ -12,19 +12,17 @@
         <version>${xenon.version}</version>
     </parent>
 
-    <groupId>sh.xenon</groupId>
     <artifactId>xenon-web</artifactId>
 
     <properties>
-        <kotlin.version>1.1.51</kotlin.version>
+        <kotlin.version>1.2.10</kotlin.version>
         <main.class>sh.xenon.XenonApplication</main.class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
         <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
 
-        <dropwizard.version>1.2.2</dropwizard.version>
-        <quasar.version>0.7.2</quasar.version>
-        <comsat.version>0.7.0</comsat.version>
+        <jooby.version>1.2.3</jooby.version>
+        <kotlinx.coroutines.version>0.20</kotlinx.coroutines.version>
     </properties>
 
     <dependencies>
@@ -34,23 +32,35 @@
             <version>${kotlin.version}</version>
         </dependency>
 
+        <!-- Coroutines -->
         <dependency>
-            <groupId>io.dropwizard</groupId>
-            <artifactId>dropwizard-core</artifactId>
-            <version>${dropwizard.version}</version>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-coroutines-core</artifactId>
+            <version>${kotlinx.coroutines.version}</version>
         </dependency>
 
+        <!-- Jooby dependencies -->
         <dependency>
-            <groupId>co.paralleluniverse</groupId>
-            <artifactId>quasar-core</artifactId>
-            <version>${quasar.version}</version>
-            <classifier>jdk8</classifier>
+            <groupId>org.jooby</groupId>
+            <artifactId>jooby-jetty</artifactId>
+            <version>${jooby.version}</version>
         </dependency>
         <dependency>
-            <!-- Quasar integration with Dropwizard -->
-            <groupId>co.paralleluniverse</groupId>
-            <artifactId>comsat-dropwizard</artifactId>
-            <version>${comsat.version}</version>
+            <groupId>org.jooby</groupId>
+            <artifactId>jooby-lang-kotlin</artifactId>
+            <version>${jooby.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jooby</groupId>
+            <artifactId>jooby-jackson</artifactId>
+            <version>${jooby.version}</version>
+        </dependency>
+
+        <!-- Jackson integration -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-kotlin</artifactId>
+            <version>2.9.0</version>
         </dependency>
     </dependencies>
 
@@ -67,12 +77,36 @@
                             <goal>compile</goal>
                         </goals>
                         <configuration>
+                            <args>
+                                <arg>-Xcoroutines=enable</arg>
+                            </args>
                             <sourceDirs>
                                 <sourceDir>src/main/kotlin</sourceDir>
                             </sourceDirs>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <artifactId>jooby-maven-plugin</artifactId>
+                <groupId>org.jooby</groupId>
+                <version>${jooby.version}</version>
+                <configuration>
+                    <mainClass>${main.class}</mainClass>
+                    <commands/>
+                    <compiler>off</compiler>
+                    <fork>true</fork>
+                    <vmArgs/>
+                    <debug>true</debug>
+                    <includes>
+                        <include>**/*.class</include>
+                        <include>**/*.conf</include>
+                        <include>**/*.properties</include>
+                    </includes>
+                    <excludes>
+                    </excludes>
+                    <srcExtensions>.java,.kt,.conf,.properties</srcExtensions>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

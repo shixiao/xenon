@@ -1,21 +1,23 @@
 package sh.xenon
 
-import co.paralleluniverse.fibers.dropwizard.FiberApplication
-import io.dropwizard.setup.Environment
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import org.jooby.Kooby
+import org.jooby.json.Jackson
+import org.jooby.run
+import sh.xenon.resources.TestResource
 
-class XenonApplication : FiberApplication<XenonConfig>() {
+class XenonApplication : Kooby({
+    // Modules
+    use(Jackson(jacksonObjectMapper()))
+
+    // Resources
+    use(TestResource::class)
+}) {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            XenonApplication().run(*args)
+            run(::XenonApplication, *args)
         }
-    }
-
-    override fun getName(): String {
-        return "Xenon"
-    }
-
-    override fun fiberRun(config: XenonConfig, environment: Environment) {
     }
 }
 
