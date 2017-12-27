@@ -1,5 +1,0 @@
-content: "Hello World!"
-server:
-  minThreads: 8
-  maxThreads: 32
-  maxQueuedRequests: 256
