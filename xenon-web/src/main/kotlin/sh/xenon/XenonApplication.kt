@@ -9,7 +9,7 @@ import org.jooby.Kooby
 import org.jooby.json.Jackson
 import org.jooby.metrics.Metrics
 import org.jooby.run
-import sh.xenon.resources.TestResource
+import org.jooby.scanner.Scanner
 import java.util.concurrent.TimeUnit
 
 class XenonApplication : Kooby({
@@ -26,9 +26,7 @@ class XenonApplication : Kooby({
                 reporter
             })
     )
-
-    // Resources
-    use(TestResource::class)
+    use(Scanner())
 }) {
     companion object {
         @JvmStatic

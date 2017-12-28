@@ -9,7 +9,7 @@
     <parent>
         <groupId>sh.xenon</groupId>
         <artifactId>xenon</artifactId>
-        <version>${xenon.version}</version>
+        <version>0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>sh.xenon</groupId>

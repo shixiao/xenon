@@ -14,8 +14,8 @@
 
     <groupId>sh.xenon</groupId>
     <artifactId>xenon</artifactId>
+    <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <version>${xenon.version}</version>
 
     <modules>
         <module>xenon-app</module>
