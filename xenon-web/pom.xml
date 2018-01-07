@@ -22,7 +22,8 @@
         <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
 
         <jooby.version>1.2.3</jooby.version>
-        <kotlinx.coroutines.version>0.20</kotlinx.coroutines.version>
+        <h2.version>1.4.196</h2.version>
+        <pgsql.jdbc.version>42.1.4</pgsql.jdbc.version>
     </properties>
 
     <dependencies>
@@ -35,13 +36,6 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-reflect</artifactId>
             <version>${kotlin.version}</version>
-        </dependency>
-
-        <!-- Coroutines -->
-        <dependency>
-            <groupId>org.jetbrains.kotlinx</groupId>
-            <artifactId>kotlinx-coroutines-core</artifactId>
-            <version>${kotlinx.coroutines.version}</version>
         </dependency>
 
         <!-- Jooby dependencies -->
@@ -70,12 +64,35 @@
             <artifactId>jooby-scanner</artifactId>
             <version>${jooby.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jooby</groupId>
+            <artifactId>jooby-jdbc</artifactId>
+            <version>${jooby.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jooby</groupId>
+            <artifactId>jooby-hbm</artifactId>
+            <version>${jooby.version}</version>
+        </dependency>
 
         <!-- Jackson integration -->
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-kotlin</artifactId>
             <version>2.9.0</version>
+        </dependency>
+
+        <!-- H2DB -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+        </dependency>
+        <!-- Postgres -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${pgsql.jdbc.version}</version>
         </dependency>
     </dependencies>
 
@@ -200,8 +217,13 @@
             </snapshots>
             <id>codehausSnapshots</id>
             <name>Codehaus Snapshots</name>
-            <url>http://snapshots.maven.codehaus.org/maven2</url>
+            <url>https://snapshots.maven.codehaus.org/maven2</url>
             <layout>default</layout>
+        </repository>
+        <repository>
+            <id>exposed</id>
+            <name>exposed</name>
+            <url>https://dl.bintray.com/kotlin/exposed</url>
         </repository>
     </repositories>
 </project>

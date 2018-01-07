@@ -6,6 +6,8 @@ import com.codahale.metrics.jvm.MemoryUsageGaugeSet
 import com.codahale.metrics.jvm.ThreadStatesGaugeSet
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.jooby.Kooby
+import org.jooby.hbm.Hbm
+import org.jooby.jdbc.Jdbc
 import org.jooby.json.Jackson
 import org.jooby.metrics.Metrics
 import org.jooby.run
@@ -27,6 +29,8 @@ class XenonApplication : Kooby({
             })
     )
     use(Scanner())
+    use(Jdbc())
+    use(Hbm().scan())
 }) {
     companion object {
         @JvmStatic
