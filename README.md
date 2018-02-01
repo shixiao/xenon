@@ -8,8 +8,9 @@ All of Xenon's code is available under the [MIT License](https://tldrlegal.com/l
 ```
 # git clone
 cd xenon/
-# this will create a docker image and tag it with the project.version
 mvn package
+# this will create a docker image and tag it with the project.version
+mvn dockerfile:build
 docker push xenonsh/xenon:XXX-SNAPSHOT
 ```
 

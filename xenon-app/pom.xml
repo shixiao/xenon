@@ -10,6 +10,7 @@
         <groupId>sh.xenon</groupId>
         <artifactId>xenon</artifactId>
         <version>0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>sh.xenon</groupId>
@@ -46,6 +47,14 @@
                             <followSymlinks>false</followSymlinks>
                         </fileset>
                     </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${dockerfile-maven.version}</version>
+                <configuration>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
